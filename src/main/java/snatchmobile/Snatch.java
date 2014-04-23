@@ -237,9 +237,6 @@ public class Snatch {
 		});
 		for (int i = 0; i < nodeList.size(); i++) {
 			String a_label = ((LinkTag) nodeList.elementAt(i)).extractLink();
-			if (!a_label.toLowerCase().startsWith("http://")
-					&& !a_label.toLowerCase().startsWith("https://"))
-				continue;
 			if (!a_label.toLowerCase().endsWith(".jpg")
 					&& !a_label.toLowerCase().endsWith(".png")
 					&& !a_label.toLowerCase().endsWith(".gif")) {
