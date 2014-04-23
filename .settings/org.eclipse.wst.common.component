@@ -2,8 +2,7 @@
     <wb-module deploy-name="snatchmobile">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/test/java"/>
         <property name="context-root" value="snatchmobile"/>
         <property name="java-output-path" value="/snatchmobile/target/classes"/>
     </wb-module>

@@ -35,6 +35,12 @@
 		</dependency>
 		<!-- httpclient End -->
 		
+		<dependency>
+		  <groupId>org.htmlparser</groupId>
+		  <artifactId>htmlparser</artifactId>
+		  <version>2.1</version>
+		</dependency>
+		
 		<!-- log4j Start -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -81,25 +87,19 @@
 		</dependency>
 		<!-- commons end -->
 		
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>2.4.9</version>
-        </dependency>
-		<!-- alibaba End -->
 		<dependency>
 		  <groupId>org.slf4j</groupId>
 		  <artifactId>slf4j-api</artifactId>
 		  <version>1.6.2</version>
 		</dependency>
 		
-		<!-- sun tools in jdk start -->
+		<!-- xml 序列化 Start -->
 		<dependency>
-		  <groupId>com.sun</groupId>
-		  <artifactId>tools</artifactId>
-		  <version>1.7</version>
+		  <groupId>com.thoughtworks.xstream</groupId>
+		  <artifactId>xstream</artifactId>
+		  <version>1.4.5</version>
 		</dependency>
-		<!-- sun tools in jdk end -->
+		<!-- xml 序列化 End -->
 		
 		<!-- sql server driver start -->
 		<!-- jdbc:jtds:sqlserver://localhost:1433/dbname -->
