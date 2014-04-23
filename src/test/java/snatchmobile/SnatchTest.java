@@ -19,7 +19,7 @@ public class SnatchTest {
 
 	@Test
 	public void testRecursiveSnatch() throws Exception {
-		SnatchStart.main(null);
+		//SnatchStart.main(null);
 	}
 	
 	public void test() throws Exception {

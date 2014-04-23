@@ -10,8 +10,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -117,7 +119,17 @@ public class Snatch {
 				return null;
 			}
 		} else {
-			return urlpath;
+			try{
+				URI uri = new URI(baseUrl);
+				URI newuri = new URI(urlpath);
+				if(!newuri.getHost().toLowerCase().equals(uri.getHost().toLowerCase()))
+					return null;
+				if(newuri.getRawPath().toLowerCase().equals(uri.getRawPath().toLowerCase()))
+					return null;
+				return urlpath;
+			}catch(URISyntaxException e){
+				return null;
+			}
 		}
 	}
 
@@ -180,6 +192,12 @@ public class Snatch {
 		}
 		return p;
 	}
+	
+	private static Set<String> hasSnatchUrl = new HashSet<String>();
+	
+	private synchronized static void InSet(String url){
+		hasSnatchUrl.add(url);
+	}
 
 	/**
 	 * 从入口递归抓取电话号码
@@ -189,6 +207,7 @@ public class Snatch {
 	 */
 	public static void RecursiveSnatch(String url) throws Exception {
 		String content = getdown(url);
+		InSet(url);
 		List<String> mobile_list = null;
 		try {
 			mobile_list = ExtractListRegion(getReg(), content);
@@ -225,10 +244,14 @@ public class Snatch {
 					&& !a_label.toLowerCase().endsWith(".png")
 					&& !a_label.toLowerCase().endsWith(".gif")) {
 				String newurl = CombineUrl(url, a_label);
+				if(newurl == null)
+					continue;
 				if (!newurl.toLowerCase().startsWith("http://")
 						&& !newurl.toLowerCase().startsWith("https://"))
 					continue;
 				System.out.println("开始提取：" + newurl);
+				if(hasSnatchUrl.contains(newurl))
+					continue;
 				try {
 					RecursiveSnatch(newurl);
 				} catch (Exception e) {
