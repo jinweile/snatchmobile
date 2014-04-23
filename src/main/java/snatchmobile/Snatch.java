@@ -174,6 +174,8 @@ public class Snatch {
 	}
 
 	private static Pattern p;
+	
+	private static int snatchtime = 10;
 
 	/**
 	 * 获取正则表达式
@@ -189,6 +191,7 @@ public class Snatch {
 			prop.load(is);
 			p = Pattern.compile("(?s)" + prop.getProperty("mobile"),
 					Pattern.CASE_INSENSITIVE);
+			snatchtime = Integer.parseInt(prop.getProperty("time"));
 		}
 		return p;
 	}
@@ -250,6 +253,7 @@ public class Snatch {
 				if(hasSnatchUrl.contains(newurl))
 					continue;
 				try {
+					Thread.sleep(snatchtime);
 					RecursiveSnatch(newurl);
 				} catch (Exception e) {
 					e.printStackTrace();
