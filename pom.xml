@@ -112,13 +112,13 @@
 		
 	</dependencies>
 	<build>
-        <!-- <resources>  
-            控制资源文件的拷贝  
-            <resource>
+        <resources>  
+            <!-- 控制资源文件的拷贝 -->
+            <!-- <resource>
                 <directory>src/main/resources</directory>  
                 <targetPath>${project.build.directory}</targetPath>  
-            </resource>  
-        </resources> -->
+            </resource>   -->
+        </resources>
         <plugins>  
 			<plugin>
 				<groupId>org.apache.felix</groupId>
@@ -134,7 +134,7 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-            拷贝依赖的jar包到lib目录  
+            拷贝依赖的jar包到lib目录
             <plugin>  
                 <groupId>org.apache.maven.plugins</groupId>  
                 <artifactId>maven-dependency-plugin</artifactId>  

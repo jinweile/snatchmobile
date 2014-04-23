@@ -19,12 +19,12 @@ public class SnatchTest {
 
 	@Test
 	public void testRecursiveSnatch() throws Exception {
-		SnatchStart.main(null);
+		//SnatchStart.main(null);
 	}
 	
 	public void test() throws Exception {
 		//Snatch.RecursiveSnatch("http://www.jihaoba.com/");
-		XStream xstream = new XStream();
+		/*XStream xstream = new XStream();
 		String path = "F:\\Temp\\urlinfo.xml";
 		List<SnatchStart.UrlInfo> list = new ArrayList<SnatchStart.UrlInfo>();
 		for(int i = 0; i < 2; i++){
@@ -34,7 +34,7 @@ public class SnatchTest {
 		}
 		Files.write(Paths.get(path), xstream.toXML(list).getBytes("UTF-8"),
 				StandardOpenOption.WRITE, StandardOpenOption.CREATE,
-				StandardOpenOption.TRUNCATE_EXISTING);
+				StandardOpenOption.TRUNCATE_EXISTING);*/
 	}
 
 }

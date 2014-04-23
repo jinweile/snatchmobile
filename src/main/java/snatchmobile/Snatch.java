@@ -217,7 +217,7 @@ public class Snatch {
 		if (mobile_list != null)
 			for (String mobile : mobile_list) {
 				try {
-					//InsertDB(mobile);
+					InsertDB(mobile);
 					System.out.println("获取号码：" + mobile);
 				} catch (Exception e) {
 					e.printStackTrace();
