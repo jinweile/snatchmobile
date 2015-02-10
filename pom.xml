@@ -112,30 +112,62 @@
 		
 	</dependencies>
 	<build>
-        <resources>  
-            <!-- 控制资源文件的拷贝 -->
-            <!-- <resource>
+		<!-- 控制资源文件的拷贝 -->
+        <!-- <resources>  
+            <resource>
                 <directory>src/main/resources</directory>  
-                <targetPath>${project.build.directory}</targetPath>  
-            </resource>   -->
-        </resources>
-        <plugins>  
+                <targetPath>${project.build.directory}/run/conf</targetPath>
+                <includes>
+                	<include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+			<resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                	<exclude>**/*.xml</exclude>
+                </excludes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/bin</directory>  
+                <targetPath>${project.build.directory}/run/bin</targetPath>
+                <includes>
+                	<include>**/*</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources> -->
+        <plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
 			</plugin>
 			<!-- mvn package打包时使用 -->
-			<!-- <plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-            拷贝依赖的jar包到lib目录
-            <plugin>  
+			<!-- 生成jar -->
+			<!-- <plugin>  
+			    <groupId>org.apache.maven.plugins</groupId>  
+			    <artifactId>maven-jar-plugin</artifactId>  
+			    <version>2.4</version>  
+			    <configuration>  
+                    <outputDirectory>  
+                        ${project.build.directory}/run/lib  
+                    </outputDirectory>
+			    </configuration>  
+			</plugin>  -->
+            <!-- 拷贝依赖的jar包到lib目录 -->
+            <!-- <plugin>  
                 <groupId>org.apache.maven.plugins</groupId>  
                 <artifactId>maven-dependency-plugin</artifactId>  
                 <executions>  
@@ -147,12 +179,12 @@
                         </goals>  
                         <configuration>  
                             <outputDirectory>  
-                                ${project.build.directory}/lib  
+                                ${project.build.directory}/run/lib  
                             </outputDirectory>  
                         </configuration>  
                     </execution>  
                 </executions>  
-            </plugin>   -->
+            </plugin> -->  
         </plugins>  
 	</build>
 </project>
